@@ -16,7 +16,7 @@ import static net.corda.core.contracts.ContractsDSL.*;
 public class GameStateContract implements Contract {
 
     // Used to identify our contract when building a transaction.
-    public static final String ID = "net.corda.examples.yo.contracts.GameIssueContract";
+    public static final String ID = "net.corda.examples.yo.contracts.GameStateContract";
 
     // Contract code.
     @Override
