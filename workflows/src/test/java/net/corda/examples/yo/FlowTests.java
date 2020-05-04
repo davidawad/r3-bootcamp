@@ -18,6 +18,9 @@ import java.util.concurrent.ExecutionException;
 
 public class FlowTests {
 
+    public String GAMENAME = "chess";
+    public String WINNER = "Donkey Kong";
+
 
     private final MockNetwork network = new MockNetwork(new MockNetworkParameters().withCordappsForAllNodes(ImmutableList.of(
             TestCordapp.findCordapp("net.corda.examples.yo.contracts"),
@@ -83,9 +86,6 @@ public class FlowTests {
     public void basicGameUpdateFlowTest() throws ExecutionException, InterruptedException {
 
         SignedTransaction tx;
-
-        String GAMENAME = "chess";
-        String WINNER = "Donkey Kong";
 
         CordaFuture<SignedTransaction> startedGame = player1.startFlow(new GameIssueFlow.InitiatorFlow(player2.getInfo().getLegalIdentities().get(0), GAMENAME));
         network.runNetwork();

@@ -22,11 +22,11 @@ public class GameStateContract implements Contract {
     @Override
     public void verify(@NotNull LedgerTransaction tx) throws IllegalArgumentException {
 
-
         // CommandWithParties<Commands> command = requireSingleCommand(tx.getCommands(), Commands.Send.class);
 
         final CommandWithParties command = tx.getCommands().get(0);
 
+        // Command for creating a new Game
         if(command.getValue() instanceof Commands.Send) {
 
             requireThat(req -> {
@@ -47,9 +47,12 @@ public class GameStateContract implements Contract {
                 // YoState yo = tx.outputsOfType(YoState.class).get(0);
                 // req.using("No sending Yo's to yourself!", !yo.getTarget().equals(yo.getOrigin()));
                 // req.using("The Yo! must be signed by the sender.", command.getSigners().contains(yo.getOrigin().getOwningKey()));
+
                 return null;
             });
 
+
+        // Command for modifying a Game
         } else if (command.getValue() instanceof Commands.Modify) {
 
             requireThat(req -> {

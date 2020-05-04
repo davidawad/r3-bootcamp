@@ -172,7 +172,6 @@ public class MainController {
         Party me = proxy.nodeInfo().getLegalIdentities().get(0);
 
         // Party lender = Optional.ofNullable(proxy.wellKnownPartyFromX500Name(CordaX500Name.parse(party))).orElseThrow(() -> new IllegalArgumentException("Unknown party name."));
-
         List<Party> players = new ArrayList<>();
 
         for (String submittedPartyName : playersListParam) {
@@ -192,7 +191,6 @@ public class MainController {
         if (time == null) {
             time = GameState.DEFAULT_TIME;
         }
-
 
         // Create a new Game State using the parameters given.
         try {

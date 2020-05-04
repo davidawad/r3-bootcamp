@@ -1,0 +1,13 @@
+
+   ______               __
+  / ____/     _________/ /___ _
+ / /     __  / ___/ __  / __ `/         Top tip: never say "oops", instead
+/ /___  /_/ / /  / /_/ / /_/ /          always say "Ah, Interesting!"
+\____/     /_/   \__,_/\__,_/
+
+--- Corda Open Source 4.4 (21e8c4f) -------------------------------------------------------------
+
+
+Logs can be found in                    : /Users/davidawad/Projects/R3/ENG-DEMO/ENG-DEMO/build/nodes/Derek/logs
+[ERROR] 13:36:57-0400 [main] subcommands.ValidateConfigurationCli. - Error(s) while parsing node configuration:
+	- for path: "myLegalName": value does not comply with CordaX500Name specification (improperly specified input name: Derek)

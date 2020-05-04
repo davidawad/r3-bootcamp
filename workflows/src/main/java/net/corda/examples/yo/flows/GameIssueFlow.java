@@ -57,8 +57,6 @@ public class GameIssueFlow {
         private Party target;
 
 
-
-
         public InitiatorFlow(Party target, String winner, String gameName, String time) {
 
             this.players = ArrayUtils.add(this.players, target); // add the target to our players array
@@ -68,7 +66,6 @@ public class GameIssueFlow {
             this.gameName = gameName;
 
         }
-
 
         public InitiatorFlow(Party target, String game) {
             this(target, GameState.DEFAULT_WINNER, game, GameState.DEFAULT_TIME);
@@ -80,15 +77,16 @@ public class GameIssueFlow {
         }
 
 
-
-
-
         @Suspendable
         @Override
         public SignedTransaction call() throws FlowException {
             progressTracker.setCurrentStep(CREATING);
 
             Party me = getOurIdentity();
+
+            // TODO make sure that the party initiating the flow is NOT the node itself.
+
+
             Party notary = getServiceHub().getNetworkMapCache().getNotaryIdentities().get(0);
             Command<GameStateContract.Commands.Send> command = new Command<>(new GameStateContract.Commands.Send(), Arrays.asList(me.getOwningKey()));
 

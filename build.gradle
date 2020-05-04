@@ -122,7 +122,7 @@ task deployNodesJava(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
 
     }
     node {
-        name "Player1"
+        name "O=Notary,L=London,C=GB"
         notary = [validating : false]
         p2pPort 10002
         rpcSettings {
@@ -131,7 +131,7 @@ task deployNodesJava(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         }
     }
     node {
-        name "Player2"
+        name "O=ParticipantA,L=London,C=GB" //O=ParticipantA,L=London,C=GB
         p2pPort 10005
         rpcSettings {
             address("localhost:10006")
@@ -140,7 +140,7 @@ task deployNodesJava(type: net.corda.plugins.Cordform, dependsOn: ['jar']) {
         rpcUsers = [[ user: "user1", "password": "test", "permissions": ["ALL"]]]
     }
     node {
-        name "Player3"
+        name "O=ParticipantB,L=New York,C=US"
         p2pPort 10008
         rpcSettings {
             address("localhost:10009")

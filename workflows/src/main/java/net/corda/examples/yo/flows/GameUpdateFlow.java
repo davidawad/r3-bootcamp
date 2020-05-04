@@ -66,8 +66,8 @@ public class GameUpdateFlow {
         private final String winner;
 
         // consume our previous transaction id and add our winner.
-        public InitiatorFlow(UniqueIdentifier stateLinearId, String winner) {
-            this.stateLinearId = stateLinearId;
+        public InitiatorFlow(UniqueIdentifier id, String winner) {
+            this.stateLinearId = id;
             this.winner = winner;
         }
 
